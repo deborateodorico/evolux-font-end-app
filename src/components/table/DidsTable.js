@@ -14,11 +14,11 @@ export default function DidsTable({ data }) {
           <th scope='col'>Currency</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody className='table'>
         {data.map((item) => {
           return (
-            <tr className={styles['dids-row']}>
-              <th scope='row'>{item.id}</th>
+            <tr key={item.id} className={styles['dids-row']}>
+              <td>{item.id}</td>
               <td>{item.value}</td>
               <td>{item.monthyPrice}</td>
               <td>{item.setupPrice}</td>
