@@ -1,5 +1,6 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
+import styles from './DidsTable.module.scss';
 
 export default function DidsTable({ data }) {
   return (
@@ -16,7 +17,7 @@ export default function DidsTable({ data }) {
       <tbody>
         {data.map((item) => {
           return (
-            <tr>
+            <tr className={styles['dids-row']}>
               <th scope='row'>{item.id}</th>
               <td>{item.value}</td>
               <td>{item.monthyPrice}</td>
