@@ -6,7 +6,7 @@ function App() {
   const data = dids.data;
 
   return (
-    <div className='App'>
+    <div className='app'>
       <Layout>
         <DidsTable data={data} />
       </Layout>

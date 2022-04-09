@@ -1,5 +1,10 @@
 import styles from './Layout.module.scss';
+import { Container } from 'react-bootstrap';
 
 export function Layout({ children }) {
-  return <div className={styles.layout}>{children}</div>;
+  return (
+    <Container className={styles.layout} fluid='sm'>
+      {children}
+    </Container>
+  );
 }

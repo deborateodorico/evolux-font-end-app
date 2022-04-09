@@ -1,8 +1,9 @@
 import React from 'react';
+import { Table } from 'react-bootstrap';
 
 export default function DidsTable({ data }) {
   return (
-    <table className='table'>
+    <Table className='table' responsive>
       <thead>
         <tr className='table-info'>
           <th scope='col'>#</th>
@@ -25,6 +26,6 @@ export default function DidsTable({ data }) {
           );
         })}
       </tbody>
-    </table>
+    </Table>
   );
 }
