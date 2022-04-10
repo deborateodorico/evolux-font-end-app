@@ -1,23 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import DidsTable from './components/table/DidsTable';
+import { Layout } from './components/layout/Layout';
+import dids from './data/dids.json';
 
 function App() {
+  const data = dids.data;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='app'>
+      <Layout>
+        <DidsTable data={data} />
+      </Layout>
     </div>
   );
 }

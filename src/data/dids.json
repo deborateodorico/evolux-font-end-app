@@ -1,0 +1,39 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "value": "+55 84 91234-4321",
+      "monthyPrice": "0.03",
+      "setupPrice": "3.40",
+      "currency": "U$"
+    },
+    {
+      "id": 2,
+      "value": "+55 84 91234-4322",
+      "monthyPrice": "0.04",
+      "setupPrice": "3.40",
+      "currency": "U$"
+    },
+    {
+      "id": 3,
+      "value": "+55 84 91234-4323",
+      "monthyPrice": "0.05",
+      "setupPrice": "3.40",
+      "currency": "U$"
+    },
+    {
+      "id": 4,
+      "value": "+55 84 91234-4324",
+      "monthyPrice": "0.06",
+      "setupPrice": "3.40",
+      "currency": "U$"
+    },
+    {
+      "id": 5,
+      "value": "+55 84 91234-4325",
+      "monthyPrice": "0.07",
+      "setupPrice": "3.40",
+      "currency": "U$"
+    }
+  ]
+}
