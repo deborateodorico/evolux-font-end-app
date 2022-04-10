@@ -1,9 +1,9 @@
 import DidsTable from './components/table/DidsTable';
 import { Layout } from './components/layout/Layout';
-import dids from './data/dids.json';
+import generateDidsData from './api/generateDidsData';
 
 function App() {
-  const data = dids.data;
+  const data = generateDidsData(5);
 
   return (
     <div className='app'>
