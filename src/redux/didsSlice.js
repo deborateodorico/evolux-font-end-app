@@ -31,6 +31,6 @@ export const { addNewDids } = slice.actions;
 
 export const selectDids = (state) => state.dids.list;
 
-export const selectstatus = (state) => state.dids.status;
+export const selectStatus = (state) => state.dids.status;
 
 export default slice.reducer;
