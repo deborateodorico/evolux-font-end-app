@@ -42,6 +42,8 @@
   "devDependencies": {
     "@faker-js/faker": "^6.1.2",
     "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.0.0"
+    "@testing-library/react": "^13.0.0",
+    "react-redux": "^7.2.8",
+    "redux": "^4.1.2"
   }
 }
