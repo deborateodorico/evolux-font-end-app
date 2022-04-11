@@ -5,7 +5,7 @@ export const getDids = createAsyncThunk('dids/getDids', async () => {
   return await fetchDids();
 });
 const initialState = {
-  didsList: [],
+  list: [],
   status: null,
 };
 
@@ -18,7 +18,7 @@ export const slice = createSlice({
       state.status = 'loading';
     },
     [getDids.fulfilled]: (state, { payload }) => {
-      state.didsList = payload;
+      state.list = payload;
       state.status = 'success';
     },
     [getDids.rejected]: (state) => {
@@ -29,6 +29,8 @@ export const slice = createSlice({
 
 export const { addNewDids } = slice.actions;
 
-export const selectDids = (state) => state;
+export const selectDids = (state) => state.dids.list;
+
+export const selectstatus = (state) => state.dids.status;
 
 export default slice.reducer;
