@@ -1,16 +1,14 @@
 import DidsTable from './components/table/DidsTable';
 import { Layout } from './components/layout/Layout';
-import { fetchDids } from './api/';
 import { useEffect } from 'react';
-import { addNewDids } from './redux/didsSlice';
 import { useDispatch } from 'react-redux';
+import { getDids } from './redux/didsSlice';
 
 function App() {
   const dispatch = useDispatch();
 
   async function fetchAllDids() {
-    const dids = await fetchDids();
-    dispatch(addNewDids(dids));
+    dispatch(getDids());
   }
 
   useEffect(() => {
