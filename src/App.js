@@ -1,27 +1,26 @@
 import DidsTable from './components/table/DidsTable';
 import { Layout } from './components/layout/Layout';
 import { fetchDids } from './api/';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { addNewDids } from './redux/didsSlice';
+import { useDispatch } from 'react-redux';
 
 function App() {
-  const [didsData, setDidsData] = useState(null);
+  const dispatch = useDispatch();
 
   async function fetchAllDids() {
     const dids = await fetchDids();
-
-    setDidsData(dids);
+    dispatch(addNewDids(dids));
   }
 
   useEffect(() => {
     fetchAllDids();
   }, []);
 
-  if (!didsData) return 'Loading...';
-
   return (
     <div className='app'>
       <Layout>
-        <DidsTable data={didsData} />
+        <DidsTable />
       </Layout>
     </div>
   );
