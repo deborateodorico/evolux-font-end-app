@@ -19,7 +19,7 @@ export default function DidsTable() {
         </tr>
       </thead>
       <tbody className='table'>
-        {didsList.dids.map((item) => {
+        {didsList.dids.didsList.map((item) => {
           return (
             <tr key={item.id} className={styles['dids-row']}>
               <td>{item.id}</td>
