@@ -2,13 +2,13 @@ import React from 'react';
 import { Table } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import styles from './DidsTable.module.scss';
-import { selectDids, selectstatus } from '../../redux/didsSlice';
+import { selectDids, selectStatus } from '../../redux/didsSlice';
 import Loading from '../loading/Loading';
 
 export default function DidsTable() {
   const list = useSelector(selectDids);
 
-  const status = useSelector(selectstatus);
+  const status = useSelector(selectStatus);
 
   return (
     <>
