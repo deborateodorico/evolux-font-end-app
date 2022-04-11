@@ -1,8 +1,12 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 import styles from './DidsTable.module.scss';
+import { selectDids } from '../../redux/didsSlice';
 
-export default function DidsTable({ data }) {
+export default function DidsTable() {
+  const didsList = useSelector(selectDids);
+
   return (
     <Table className='table' responsive>
       <thead>
@@ -15,7 +19,7 @@ export default function DidsTable({ data }) {
         </tr>
       </thead>
       <tbody className='table'>
-        {data.map((item) => {
+        {didsList.dids.map((item) => {
           return (
             <tr key={item.id} className={styles['dids-row']}>
               <td>{item.id}</td>
