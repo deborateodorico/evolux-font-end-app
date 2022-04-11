@@ -2,35 +2,43 @@ import React from 'react';
 import { Table } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import styles from './DidsTable.module.scss';
-import { selectDids } from '../../redux/didsSlice';
+import { selectDids, selectstatus } from '../../redux/didsSlice';
+import Loading from '../loading/Loading';
 
 export default function DidsTable() {
-  const didsList = useSelector(selectDids);
+  const list = useSelector(selectDids);
+
+  const status = useSelector(selectstatus);
 
   return (
-    <Table className='table' responsive>
-      <thead>
-        <tr className='table-info'>
-          <th scope='col'>#</th>
-          <th scope='col'>Number Available</th>
-          <th scope='col'>Monthy Price</th>
-          <th scope='col'>Setup Price</th>
-          <th scope='col'>Currency</th>
-        </tr>
-      </thead>
-      <tbody className='table'>
-        {didsList.dids.didsList.map((item) => {
-          return (
-            <tr key={item.id} className={styles['dids-row']}>
-              <td>{item.id}</td>
-              <td>{item.value}</td>
-              <td>{item.monthyPrice}</td>
-              <td>{item.setupPrice}</td>
-              <td>{item.currency}</td>
+    <>
+      {status === 'success' && (
+        <Table className='table' responsive>
+          <thead>
+            <tr className='table-info'>
+              <th scope='col'>#</th>
+              <th scope='col'>Number Available</th>
+              <th scope='col'>Monthy Price</th>
+              <th scope='col'>Setup Price</th>
+              <th scope='col'>Currency</th>
             </tr>
-          );
-        })}
-      </tbody>
-    </Table>
+          </thead>
+          <tbody className='table'>
+            {list.map((item) => {
+              return (
+                <tr key={item.id} className={styles['dids-row']}>
+                  <td>{item.id}</td>
+                  <td>{item.value}</td>
+                  <td>{item.monthyPrice}</td>
+                  <td>{item.setupPrice}</td>
+                  <td>{item.currency}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </Table>
+      )}
+      {status === 'loading' && <Loading />}
+    </>
   );
 }
