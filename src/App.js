@@ -1,14 +1,27 @@
 import DidsTable from './components/table/DidsTable';
 import { Layout } from './components/layout/Layout';
-import dids from './data/dids.json';
+import { fetchDids } from './api/';
+import { useEffect, useState } from 'react';
 
 function App() {
-  const data = dids.data;
+  const [didsData, setDidsData] = useState(null);
+
+  async function fetchAllDids() {
+    const dids = await fetchDids();
+
+    setDidsData(dids);
+  }
+
+  useEffect(() => {
+    fetchAllDids();
+  }, []);
+
+  if (!didsData) return 'Loading...';
 
   return (
     <div className='app'>
       <Layout>
-        <DidsTable data={data} />
+        <DidsTable data={didsData} />
       </Layout>
     </div>
   );
