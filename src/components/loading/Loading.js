@@ -16,6 +16,7 @@ function Loading() {
         height='100px'
         viewBox='0 0 100 100'
         preserveAspectRatio='xMidYMid'
+        role='progressbar'
       >
         <circle
           cx='50'
@@ -37,7 +38,7 @@ function Loading() {
           ></animateTransform>
         </circle>
       </svg>
-      <img src={evolux} alt='evolux' className={style.evolux} />
+      <img src={evolux} alt='evolux logo' className={style.evolux} />
     </div>
   );
 }
