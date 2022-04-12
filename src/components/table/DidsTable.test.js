@@ -1,56 +1,106 @@
 import DidsTable from './DidsTable';
 import { screen, render } from '@testing-library/react';
+import { createStore } from 'redux';
+import didsReducer from './../../redux/didsSlice';
+import { Provider } from 'react-redux';
 
-const props = {
-  data: [
-    {
-      id: 1,
-      value: '+55 84 91234-4321',
-      monthyPrice: '0.03',
-      setupPrice: '3.40',
-      currency: 'U$',
-    },
-    {
-      id: 2,
-      value: '+55 84 91234-4322',
-      monthyPrice: '0.04',
-      setupPrice: '3.50',
-      currency: 'BRL',
-    },
-  ],
-};
+function renderWithRedux(
+  component,
+  { initialState, store = createStore(didsReducer, initialState) } = {}
+) {
+  return {
+    ...render(<Provider store={store}>{component}</Provider>),
+  };
+}
 
 describe('<DidsTable />', () => {
-  it('should render all column header informations', () => {
-    render(<DidsTable {...props} />);
+  describe('when status is loading', () => {
+    it('should render a loading', () => {
+      renderWithRedux(<DidsTable />, {
+        initialState: {
+          dids: {
+            list: [],
+            status: 'loading',
+          },
+        },
+      });
 
-    const columnHeaderId = screen.getByRole('columnheader', { name: '#' });
-    const columnHeaderValue = screen.getByRole('columnheader', {
-      name: 'Number Available',
+      const loading = screen.getByRole('progressbar');
+      expect(loading).toBeInTheDocument();
     });
-    expect(columnHeaderId).toBeInTheDocument();
-    expect(columnHeaderValue).toBeInTheDocument();
   });
 
-  it('should render a table', () => {
-    render(<DidsTable {...props} />);
+  describe('when status is success', () => {
+    it('should render all column header informations', () => {
+      renderWithRedux(<DidsTable />, {
+        initialState: { dids: { list: [], status: 'success' } },
+      });
 
-    const table = screen.getByRole('table');
-    expect(table).toBeInTheDocument();
-  });
+      const columnHeaderId = screen.getByRole('columnheader', { name: '#' });
+      const columnHeaderValue = screen.getByRole('columnheader', {
+        name: 'Number Available',
+      });
+      const columnHeaderMonthyPrice = screen.getByRole('columnheader', {
+        name: 'Monthy Price',
+      });
+      const columnHeaderSetupPrice = screen.getByRole('columnheader', {
+        name: 'Setup Price',
+      });
+      const columnHeaderCurrency = screen.getByRole('columnheader', {
+        name: 'Currency',
+      });
 
-  it('should render rows informations', () => {
-    render(<DidsTable {...props} />);
+      expect(columnHeaderId).toBeInTheDocument();
+      expect(columnHeaderValue).toBeInTheDocument();
+      expect(columnHeaderMonthyPrice).toBeInTheDocument();
+      expect(columnHeaderSetupPrice).toBeInTheDocument();
+      expect(columnHeaderCurrency).toBeInTheDocument();
+    });
 
-    props.data.forEach((did) => {
-      const didValues = Object.values(did);
+    it('should render a table', () => {
+      renderWithRedux(<DidsTable />, {
+        initialState: {
+          dids: {
+            list: [],
+            status: 'success',
+          },
+        },
+      });
 
-      didValues.forEach((value) => {
-        const cell = screen.getByRole('cell', {
-          name: value,
+      const table = screen.getByRole('table');
+      expect(table).toBeInTheDocument();
+    });
+
+    it('should render rows informations', () => {
+      const list = [
+        {
+          id: 1,
+          value: '+55 84 91234-4321',
+          monthyPrice: '0.99',
+          setupPrice: '7.61',
+          currency: 'U$',
+        },
+      ];
+
+      renderWithRedux(<DidsTable />, {
+        initialState: {
+          dids: {
+            list,
+            status: 'success',
+          },
+        },
+      });
+
+      list.forEach((did) => {
+        const didValues = Object.values(did);
+
+        didValues.forEach((value) => {
+          const cell = screen.getByRole('cell', {
+            name: value,
+          });
+
+          expect(cell).toBeInTheDocument();
         });
-
-        expect(cell).toBeInTheDocument();
       });
     });
   });
