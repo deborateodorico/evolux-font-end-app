@@ -15,7 +15,7 @@ export default function DidsTable() {
       {status === 'success' && (
         <Table className='table' responsive>
           <thead>
-            <tr className='table-info'>
+            <tr className='table-warning'>
               <th scope='col'>#</th>
               <th scope='col'>Number Available</th>
               <th scope='col'>Monthy Price</th>
