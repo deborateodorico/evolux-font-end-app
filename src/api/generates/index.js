@@ -6,7 +6,7 @@ function generateDidsData(didsQuantity) {
   for (let i = 1; i <= didsQuantity; i++) {
     let newdObj = {
       id: i,
-      value: `+55 84 91234-432${i}`,
+      value: `+55 (84) 91234-432${i}`,
       monthyPrice: Math.random().toFixed(2),
       setupPrice: (Math.random() * 11).toFixed(2),
       currency: 'U$',
@@ -17,7 +17,7 @@ function generateDidsData(didsQuantity) {
   return dataArr;
 }
 
-const dids = generateDidsData(5);
+const dids = generateDidsData(800);
 
 fs.writeFile('src/api/data/dids.json', JSON.stringify(dids), (err) => {
   // Checking for errors
