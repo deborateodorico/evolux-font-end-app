@@ -49,12 +49,16 @@ describe('<DidsTable />', () => {
       const columnHeaderCurrency = screen.getByRole('columnheader', {
         name: 'Currency',
       });
+      const columnDeleteDid = screen.getByRole('columnheader', {
+        name: 'Delete Did',
+      });
 
       expect(columnHeaderId).toBeInTheDocument();
       expect(columnHeaderValue).toBeInTheDocument();
       expect(columnHeaderMonthyPrice).toBeInTheDocument();
       expect(columnHeaderSetupPrice).toBeInTheDocument();
       expect(columnHeaderCurrency).toBeInTheDocument();
+      expect(columnDeleteDid).toBeInTheDocument();
     });
 
     it('should render a table', () => {
