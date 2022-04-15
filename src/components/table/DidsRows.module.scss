@@ -1,0 +1,7 @@
+.dids-row {
+  vertical-align: middle;
+  transition: background-color 0.5s;
+  &:hover {
+    background-color: #ecece9;
+  }
+}
