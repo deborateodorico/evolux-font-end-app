@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './DeleteDids.module.scss';
 import { useDispatch } from 'react-redux';
 import { deleteDid } from '../../redux/didsSlice';
+import deleteIcon from '../../icons/deleteIcon.png';
 
 export default function DeleteDids({ id }) {
   const dispatch = useDispatch();
@@ -12,10 +13,14 @@ export default function DeleteDids({ id }) {
   return (
     <button
       type='button'
-      className={`btn btn-sm btn-danger ${styles['delete-did-button']}`}
+      className={`btn btn-sm ${styles['delete-did-button']}`}
       onClick={handleDeleteDidButton}
     >
-      Delete
+      <img
+        src={deleteIcon}
+        alt='delete icon'
+        className={styles['delete-icon']}
+      />
     </button>
   );
 }
