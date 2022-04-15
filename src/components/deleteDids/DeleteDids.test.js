@@ -17,7 +17,7 @@ describe('<DeleteDids />', () => {
   it('should render delete did button', () => {
     renderWithRedux(<DeleteDids />);
 
-    const deleteDidButton = screen.getByRole('button', { name: 'Delete' });
+    const deleteDidButton = screen.getByAltText('delete icon');
     expect(deleteDidButton).toBeInTheDocument();
   });
 });
