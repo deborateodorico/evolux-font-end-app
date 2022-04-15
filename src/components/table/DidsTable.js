@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Table } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
-import styles from './DidsTable.module.scss';
 import { selectDids, selectStatus } from '../../redux/didsSlice';
 import Loading from '../loading/Loading';
 import Pagination from '../pagination/Pagination';
 import AddDidsButton from '../addDids/AddDidsButton';
+import DidsRows from './DidsRows';
 
 const quantityPerPage = 10;
 
@@ -55,18 +55,21 @@ export default function DidsTable() {
                 <th scope='col'>Monthy Price</th>
                 <th scope='col'>Setup Price</th>
                 <th scope='col'>Currency</th>
+                <th scope='col'>Delete Did</th>
               </tr>
             </thead>
             <tbody className='table'>
               {paginatedList.map((item) => {
                 return (
-                  <tr key={item.id} className={styles['dids-row']}>
-                    <td>{item.id}</td>
-                    <td>{item.value}</td>
-                    <td>{item.monthyPrice}</td>
-                    <td>{item.setupPrice}</td>
-                    <td>{item.currency}</td>
-                  </tr>
+                  <DidsRows
+                    key={item.id}
+                    id={item.id}
+                    value={item.value}
+                    monthyPrice={item.monthyPrice}
+                    setupPrice={item.setupPrice}
+                    currency={item.currency}
+                    row={item}
+                  />
                 );
               })}
             </tbody>
