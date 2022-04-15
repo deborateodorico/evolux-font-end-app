@@ -12,7 +12,13 @@ const initialState = {
 export const slice = createSlice({
   name: 'dids',
   initialState,
-  reducers: {},
+  reducers: {
+    addNewDid(state, { payload }) {
+      const newDid = payload;
+      newDid.id = state.list.length + 1;
+      state.list.push(payload);
+    },
+  },
   extraReducers: {
     [getDids.pending]: (state) => {
       state.status = 'loading';
@@ -27,7 +33,7 @@ export const slice = createSlice({
   },
 });
 
-export const { addNewDids } = slice.actions;
+export const { addNewDid } = slice.actions;
 
 export const selectDids = (state) => state.dids.list;
 

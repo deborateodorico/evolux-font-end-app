@@ -5,6 +5,7 @@ import styles from './DidsTable.module.scss';
 import { selectDids, selectStatus } from '../../redux/didsSlice';
 import Loading from '../loading/Loading';
 import Pagination from '../pagination/Pagination';
+import AddDidsButton from '../addDids/AddDidsButton';
 
 const quantityPerPage = 10;
 
@@ -45,6 +46,7 @@ export default function DidsTable() {
     <>
       {status === 'success' && (
         <>
+          <AddDidsButton />
           <Table className='table' responsive>
             <thead>
               <tr className='table-secondary'>
@@ -69,6 +71,7 @@ export default function DidsTable() {
               })}
             </tbody>
           </Table>
+
           <Pagination
             list={list}
             page={page}
