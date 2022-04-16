@@ -48,6 +48,7 @@ export default function AddDidsButton() {
           type='button'
           onClick={handleClickAddDidsButton}
           className={`btn btn-lg btn-warning btn-sm ${styles['add-did-button']}`}
+          aria-label='delete did button'
         >
           Add Did
         </button>
