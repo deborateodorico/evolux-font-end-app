@@ -55,6 +55,7 @@ export default function UpdateDids({
         type='button'
         onClick={handleClickAddDidsButton}
         className={`btn btn-lg btn-sm ${styles['update-did-button']}`}
+        aria-label='update did button'
       >
         <img src={updateIcon} alt='update icon' />
       </button>
