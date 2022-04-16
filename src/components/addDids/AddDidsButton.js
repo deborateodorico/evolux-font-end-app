@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import HyperModal from 'react-hyper-modal';
 import ModalForm from '../form/ModalForm';
 import styles from './AddDidsButton.module.scss';
+import { addNewDid } from '../../redux/didsSlice';
 
 export default function AddDidsButton() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -24,7 +25,14 @@ export default function AddDidsButton() {
           contentClassName: styles['content-wrapper'],
         }}
       >
-        <ModalForm />
+        <ModalForm
+          value=''
+          monthyPrice=''
+          setupPrice=''
+          currency=''
+          id=''
+          onSubmit={addNewDid}
+        />
       </HyperModal>
       <div className={styles['add-did-button-container']}>
         <button
