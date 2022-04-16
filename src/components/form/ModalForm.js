@@ -10,6 +10,8 @@ export default function ModalForm({
   currency,
   id,
   onSubmit,
+  btnStyle,
+  updateTextButton,
 }) {
   const [inputValue, setInputValue] = useState({
     id,
@@ -129,11 +131,8 @@ export default function ModalForm({
           </label>
         </div>
         <div className={styles['add-did-button-container']}>
-          <button
-            className={`btn btn-secondary ${styles['add-did-button']}`}
-            type='submit'
-          >
-            New Did
+          <button className={`btn ${btnStyle}`} type='submit'>
+            {updateTextButton}
           </button>
         </div>
       </form>
