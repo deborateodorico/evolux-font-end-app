@@ -12,6 +12,7 @@ export default function ModalForm({
   onSubmit,
   btnStyle,
   updateTextButton,
+  alertMsg,
 }) {
   const [inputValue, setInputValue] = useState({
     id,
@@ -33,6 +34,8 @@ export default function ModalForm({
       setupPrice: '',
       currency: '',
     });
+
+    alert(alertMsg);
   };
 
   const handleValue = (e) => {

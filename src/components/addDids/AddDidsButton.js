@@ -19,6 +19,8 @@ export default function AddDidsButton() {
 
   const updateTextButton = 'Add New Did';
 
+  const alertMsg = 'New did added!';
+
   return (
     <div>
       <HyperModal
@@ -38,6 +40,7 @@ export default function AddDidsButton() {
           onSubmit={addNewDid}
           btnStyle={btnStyle}
           updateTextButton={updateTextButton}
+          alertMsg={alertMsg}
         />
       </HyperModal>
       <div className={styles['add-did-button-container']}>
@@ -45,6 +48,7 @@ export default function AddDidsButton() {
           type='button'
           onClick={handleClickAddDidsButton}
           className={`btn btn-lg btn-warning btn-sm ${styles['add-did-button']}`}
+          aria-label='delete did button'
         >
           Add Did
         </button>

@@ -9,12 +9,14 @@ export default function DeleteDids({ id }) {
 
   const handleDeleteDidButton = () => {
     dispatch(deleteDid(id));
+    alert('Deleted did!');
   };
   return (
     <button
       type='button'
       className={`btn btn-sm ${styles['delete-did-button']}`}
       onClick={handleDeleteDidButton}
+      aria-label='delete did button'
     >
       <img
         src={deleteIcon}

@@ -26,6 +26,8 @@ export default function UpdateDids({
 
   const updateTextButton = 'Update Did';
 
+  const alertMsg = 'Updated did!';
+
   return (
     <div>
       <HyperModal
@@ -45,6 +47,7 @@ export default function UpdateDids({
           onSubmit={updateDid}
           btnStyle={btnStyle}
           updateTextButton={updateTextButton}
+          alertMsg={alertMsg}
         />
       </HyperModal>
 
@@ -52,6 +55,7 @@ export default function UpdateDids({
         type='button'
         onClick={handleClickAddDidsButton}
         className={`btn btn-lg btn-sm ${styles['update-did-button']}`}
+        aria-label='update did button'
       >
         <img src={updateIcon} alt='update icon' />
       </button>
