@@ -9,6 +9,7 @@ export default function DeleteDids({ id }) {
 
   const handleDeleteDidButton = () => {
     dispatch(deleteDid(id));
+    alert('Deleted did!');
   };
   return (
     <button
