@@ -50,7 +50,7 @@ describe('<DidsTable />', () => {
         name: 'Currency',
       });
       const columnDeleteDid = screen.getByRole('columnheader', {
-        name: 'Delete Did',
+        name: 'Actions',
       });
 
       expect(columnHeaderId).toBeInTheDocument();
