@@ -15,6 +15,10 @@ export default function AddDidsButton() {
     setModalIsOpen(false);
   };
 
+  const btnStyle = 'btn btn-warning';
+
+  const updateTextButton = 'Add New Did';
+
   return (
     <div>
       <HyperModal
@@ -32,6 +36,8 @@ export default function AddDidsButton() {
           currency=''
           id=''
           onSubmit={addNewDid}
+          btnStyle={btnStyle}
+          updateTextButton={updateTextButton}
         />
       </HyperModal>
       <div className={styles['add-did-button-container']}>
