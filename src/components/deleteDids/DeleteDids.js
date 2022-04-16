@@ -16,6 +16,7 @@ export default function DeleteDids({ id }) {
       type='button'
       className={`btn btn-sm ${styles['delete-did-button']}`}
       onClick={handleDeleteDidButton}
+      aria-label='delete did button'
     >
       <img
         src={deleteIcon}
