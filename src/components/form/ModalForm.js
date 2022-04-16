@@ -1,22 +1,32 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addNewDid } from '../../redux/didsSlice';
 import styles from './ModalForm.module.scss';
+import InputMask from 'react-input-mask';
 
-export default function ModalForm() {
-  const dispatch = useDispatch();
-
-  const [inputValue, setInputvalue] = useState({
-    value: '',
-    monthyPrice: '',
-    setupPrice: '',
-    currency: '',
+export default function ModalForm({
+  value,
+  monthyPrice,
+  setupPrice,
+  currency,
+  id,
+  onSubmit,
+  btnStyle,
+  updateTextButton,
+}) {
+  const [inputValue, setInputValue] = useState({
+    id,
+    value,
+    monthyPrice,
+    setupPrice,
+    currency,
   });
+  const dispatch = useDispatch();
 
   const handleSubmitForm = (e) => {
     e.preventDefault();
-    dispatch(addNewDid(inputValue));
-    setInputvalue({
+    dispatch(onSubmit(inputValue));
+
+    setInputValue({
       ...inputValue,
       value: '',
       monthyPrice: '',
@@ -28,7 +38,7 @@ export default function ModalForm() {
   const handleValue = (e) => {
     const newValue = e.target.value;
 
-    setInputvalue({
+    setInputValue({
       ...inputValue,
       value: newValue,
     });
@@ -37,7 +47,7 @@ export default function ModalForm() {
   const handleMonthyPrice = (e) => {
     const newMonthyPrice = e.target.value;
 
-    setInputvalue({
+    setInputValue({
       ...inputValue,
       monthyPrice: newMonthyPrice,
     });
@@ -46,7 +56,7 @@ export default function ModalForm() {
   const handleSetupPrice = (e) => {
     const newSetupPrice = e.target.value;
 
-    setInputvalue({
+    setInputValue({
       ...inputValue,
       setupPrice: newSetupPrice,
     });
@@ -55,7 +65,7 @@ export default function ModalForm() {
   const handleCurrency = (e) => {
     const newCurrency = e.target.value;
 
-    setInputvalue({
+    setInputValue({
       ...inputValue,
       currency: newCurrency,
     });
@@ -66,21 +76,22 @@ export default function ModalForm() {
       <form onSubmit={handleSubmitForm} className={styles.form}>
         <div className={styles['input-group-container']}>
           <label className='mb-3' htmlFor='number-available'>
-            Add Number Available:
-            <input
+            Number Available:
+            <InputMask
+              mask='+99 (99) 99999-9999'
+              value={inputValue.value}
+              onChange={handleValue}
               type='tel'
               name='number-available'
               placeholder='Number Available'
               className='form-control'
-              value={inputValue.value}
-              onChange={handleValue}
               id='number-available'
               required={true}
             />
           </label>
 
           <label className='mb-3' htmlFor='monthy-price'>
-            Add Monthy Price:
+            Monthy Price:
             <input
               type='number'
               name='monthy-price'
@@ -93,7 +104,7 @@ export default function ModalForm() {
             />
           </label>
           <label className='mb-3' htmlFor='setup-price'>
-            Add Setup Price:
+            Setup Price:
             <input
               type='number'
               name='setup-price'
@@ -106,7 +117,7 @@ export default function ModalForm() {
             />
           </label>
           <label className='mb-3' htmlFor='currency'>
-            Add Currency:
+            Currency:
             <input
               type='text'
               name='currency'
@@ -120,11 +131,8 @@ export default function ModalForm() {
           </label>
         </div>
         <div className={styles['add-did-button-container']}>
-          <button
-            className={`btn btn-warning ${styles['add-did-button']}`}
-            type='submit'
-          >
-            Add New Did
+          <button className={`btn ${btnStyle}`} type='submit'>
+            {updateTextButton}
           </button>
         </div>
       </form>

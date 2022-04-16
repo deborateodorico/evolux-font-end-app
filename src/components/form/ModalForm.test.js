@@ -17,28 +17,28 @@ describe('<ModalForm />', () => {
   it('should render a number available input', () => {
     renderWithRedux(<ModalForm />);
 
-    const NumberAvailableLabel = screen.getByLabelText('Add Number Available:');
+    const NumberAvailableLabel = screen.getByLabelText('Number Available:');
     expect(NumberAvailableLabel).toBeInTheDocument();
   });
 
   it('should render a monthy price input', () => {
     renderWithRedux(<ModalForm />);
 
-    const monthyPriceLabel = screen.getByLabelText('Add Monthy Price:');
+    const monthyPriceLabel = screen.getByLabelText('Monthy Price:');
     expect(monthyPriceLabel).toBeInTheDocument();
   });
 
   it('should render a setup price input', () => {
     renderWithRedux(<ModalForm />);
 
-    const setupPriceLabel = screen.getByLabelText('Add Setup Price:');
+    const setupPriceLabel = screen.getByLabelText('Setup Price:');
     expect(setupPriceLabel).toBeInTheDocument();
   });
 
   it('should render a currency input', () => {
     renderWithRedux(<ModalForm />);
 
-    const currencyLabel = screen.getByLabelText('Add Currency:');
+    const currencyLabel = screen.getByLabelText('Currency:');
     expect(currencyLabel).toBeInTheDocument();
   });
 

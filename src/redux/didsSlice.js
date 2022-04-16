@@ -21,6 +21,13 @@ export const slice = createSlice({
     deleteDid(state, { payload }) {
       state.list = state.list.filter((item) => item.id !== payload);
     },
+    updateDid(state, { payload }) {
+      const update = state.list.find((item) => item.id === payload.id);
+      update.value = payload.value;
+      update.monthyPrice = payload.monthyPrice;
+      update.setupPrice = payload.setupPrice;
+      update.currency = payload.currency;
+    },
   },
   extraReducers: {
     [getDids.pending]: (state) => {
@@ -36,11 +43,9 @@ export const slice = createSlice({
   },
 });
 
-export const { addNewDid } = slice.actions;
+export const { addNewDid, updateDid, deleteDid } = slice.actions;
 
 export const selectDids = (state) => state.dids.list;
-
-export const { deleteDid } = slice.actions;
 
 export const selectStatus = (state) => state.dids.status;
 
