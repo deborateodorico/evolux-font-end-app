@@ -55,7 +55,9 @@ export default function DidsTable() {
                 <th scope='col'>Monthy Price</th>
                 <th scope='col'>Setup Price</th>
                 <th scope='col'>Currency</th>
-                <th scope='col'>Delete Did</th>
+                <th scope='col' colSpan={2}>
+                  Actions
+                </th>
               </tr>
             </thead>
             <tbody className='table'>
