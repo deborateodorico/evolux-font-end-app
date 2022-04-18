@@ -3,6 +3,7 @@ import { screen, render } from '@testing-library/react';
 import { createStore } from 'redux';
 import didsReducer from './../../redux/didsSlice';
 import { Provider } from 'react-redux';
+import { currencies } from './currencies';
 
 function renderWithRedux(
   component,
@@ -40,6 +41,14 @@ describe('<ModalForm />', () => {
 
     const currencyLabel = screen.getByLabelText('Currency:');
     expect(currencyLabel).toBeInTheDocument();
+  });
+
+  it('should render all currency options', () => {
+    renderWithRedux(<ModalForm />);
+
+    currencies.forEach((currency) => {
+      expect(screen.getByText(currency)).toBeInTheDocument();
+    });
   });
 
   it('should render a add new did button', () => {
