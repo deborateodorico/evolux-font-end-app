@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { selectDids, selectStatus } from '../../redux/didsSlice';
@@ -41,6 +41,12 @@ export default function DidsTable() {
   const goToNextPage = () => {
     setPage(page + 1);
   };
+
+  useEffect(() => {
+    if (list.length !== 0) {
+      localStorage.setItem('dids-data', JSON.stringify(list));
+    }
+  }, [list]);
 
   return (
     <>

@@ -15,7 +15,8 @@ export const slice = createSlice({
   reducers: {
     addNewDid(state, { payload }) {
       const newDid = payload;
-      newDid.id = state.list.length + 1;
+      const lastDid = state.list[state.list.length - 1];
+      newDid.id = lastDid.id + 1;
       state.list.push(payload);
     },
     deleteDid(state, { payload }) {
