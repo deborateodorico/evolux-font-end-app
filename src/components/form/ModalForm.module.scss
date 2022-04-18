@@ -28,3 +28,20 @@
   display: flex;
   justify-content: center;
 }
+
+.currency-container {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 90%;
+  max-width: 230px;
+  .currency-paragraph {
+    margin-bottom: 0;
+  }
+}
+
+.label-container {
+  width: 100%;
+  max-width: 250px;
+  margin-bottom: 18px;
+}
