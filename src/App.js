@@ -4,6 +4,8 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getDids } from './redux/didsSlice';
 import { ToastContainer } from 'react-toastify';
+import Header from './components/header/Header';
+import styles from './App.module.scss';
 
 function App() {
   const dispatch = useDispatch();
@@ -17,7 +19,8 @@ function App() {
   }, []);
 
   return (
-    <div className='app'>
+    <div className={styles['app']}>
+      <Header />
       <Layout>
         <DidsTable />
       </Layout>
