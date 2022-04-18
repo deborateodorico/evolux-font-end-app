@@ -19,7 +19,7 @@ export default function AddDidsButton() {
     setModalIsOpen(false);
   };
 
-  const btnStyle = 'btn btn-warning';
+  const btnStyle = 'btn btn-success';
 
   const updateTextButton = 'Add New Did';
 
@@ -46,10 +46,11 @@ export default function AddDidsButton() {
         />
       </HyperModal>
       <div className={styles['add-did-button-container']}>
+        <h4 className={styles['title']}>List of Dids</h4>
         <button
           type='button'
           onClick={handleClickAddDidsButton}
-          className={`btn btn-lg btn-warning btn-sm ${styles['add-did-button']}`}
+          className={`btn btn-lg btn-success btn-md ${styles['add-did-button']}`}
           aria-label='delete did button'
         >
           Add Did
