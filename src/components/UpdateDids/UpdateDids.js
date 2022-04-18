@@ -4,6 +4,8 @@ import styles from '../addDids/AddDidsButton.module.scss';
 import updateIcon from '../../icons/updateIcon.png';
 import ModalForm from '../form/ModalForm';
 import { updateDid } from '../../redux/didsSlice';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function UpdateDids({
   value,
@@ -26,7 +28,7 @@ export default function UpdateDids({
 
   const updateTextButton = 'Update Did';
 
-  const alertMsg = 'Updated did!';
+  const updateDidNotify = () => toast.success('Did Updated!');
 
   return (
     <div>
@@ -47,7 +49,7 @@ export default function UpdateDids({
           onSubmit={updateDid}
           btnStyle={btnStyle}
           updateTextButton={updateTextButton}
-          alertMsg={alertMsg}
+          alertMsg={updateDidNotify}
         />
       </HyperModal>
 
