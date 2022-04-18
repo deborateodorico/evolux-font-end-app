@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import styles from './ModalForm.module.scss';
 import InputMask from 'react-input-mask';
+import { currencies as currenciesArray } from './currencies';
 
 export default function ModalForm({
   value,
@@ -74,11 +75,16 @@ export default function ModalForm({
     });
   };
 
+  const currencies = currenciesArray;
+
   return (
     <div className={styles['modal-form-container']}>
       <form onSubmit={handleSubmitForm} className={styles.form}>
         <div className={styles['input-group-container']}>
-          <label className='mb-3' htmlFor='number-available'>
+          <label
+            className={styles['label-container']}
+            htmlFor='number-available'
+          >
             Number Available:
             <InputMask
               mask='+99 (99) 99999-9999'
@@ -93,7 +99,7 @@ export default function ModalForm({
             />
           </label>
 
-          <label className='mb-3' htmlFor='monthy-price'>
+          <label className={styles['label-container']} htmlFor='monthy-price'>
             Monthy Price:
             <input
               type='number'
@@ -106,7 +112,7 @@ export default function ModalForm({
               required={true}
             />
           </label>
-          <label className='mb-3' htmlFor='setup-price'>
+          <label className={styles['label-container']} htmlFor='setup-price'>
             Setup Price:
             <input
               type='number'
@@ -119,18 +125,23 @@ export default function ModalForm({
               required={true}
             />
           </label>
-          <label className='mb-3' htmlFor='currency'>
+          <label className={styles['label-container']} htmlFor='currencies'>
             Currency:
-            <input
-              type='text'
-              name='currency'
-              placeholder='Currency'
-              className='form-control'
-              value={inputValue.currency}
+            <select
+              id='currencies'
+              name='currencies'
               onChange={handleCurrency}
-              id='currency'
-              required={true}
-            />
+              className={`form-select ${styles['currency-select']}`}
+              value={inputValue.currency}
+            >
+              {currencies.map((currency) => {
+                return (
+                  <option value={currency} key={currency}>
+                    {currency}
+                  </option>
+                );
+              })}
+            </select>
           </label>
         </div>
         <div className={styles['add-did-button-container']}>
