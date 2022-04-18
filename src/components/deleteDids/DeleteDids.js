@@ -3,13 +3,19 @@ import styles from './DeleteDids.module.scss';
 import { useDispatch } from 'react-redux';
 import { deleteDid } from '../../redux/didsSlice';
 import deleteIcon from '../../icons/deleteIcon.png';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function DeleteDids({ id }) {
   const dispatch = useDispatch();
 
+  const deleteDidNotify = () => toast.success('Did Deleted!');
+
   const handleDeleteDidButton = () => {
-    dispatch(deleteDid(id));
-    alert('Deleted did!');
+    if (window.confirm('Do you really want delete?')) {
+      dispatch(deleteDid(id));
+      deleteDidNotify();
+    }
   };
   return (
     <button

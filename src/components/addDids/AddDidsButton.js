@@ -3,9 +3,13 @@ import HyperModal from 'react-hyper-modal';
 import ModalForm from '../form/ModalForm';
 import styles from './AddDidsButton.module.scss';
 import { addNewDid } from '../../redux/didsSlice';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function AddDidsButton() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const addDidNotify = () => toast.success('Did Added!');
 
   const handleClickAddDidsButton = () => {
     setModalIsOpen(true);
@@ -18,8 +22,6 @@ export default function AddDidsButton() {
   const btnStyle = 'btn btn-warning';
 
   const updateTextButton = 'Add New Did';
-
-  const alertMsg = 'New did added!';
 
   return (
     <div>
@@ -40,7 +42,7 @@ export default function AddDidsButton() {
           onSubmit={addNewDid}
           btnStyle={btnStyle}
           updateTextButton={updateTextButton}
-          alertMsg={alertMsg}
+          alertMsg={addDidNotify}
         />
       </HyperModal>
       <div className={styles['add-did-button-container']}>

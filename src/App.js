@@ -3,6 +3,7 @@ import { Layout } from './components/layout/Layout';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getDids } from './redux/didsSlice';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   const dispatch = useDispatch();
@@ -20,6 +21,7 @@ function App() {
       <Layout>
         <DidsTable />
       </Layout>
+      <ToastContainer />
     </div>
   );
 }

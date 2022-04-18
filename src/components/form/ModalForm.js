@@ -36,7 +36,7 @@ export default function ModalForm({
       currency: '',
     });
 
-    alert(alertMsg);
+    alertMsg();
   };
 
   const handleValue = (e) => {
