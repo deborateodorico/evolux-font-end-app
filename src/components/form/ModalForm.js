@@ -133,7 +133,9 @@ export default function ModalForm({
               onChange={handleCurrency}
               className={`form-select ${styles['currency-select']}`}
               value={inputValue.currency}
+              required
             >
+              <option value=''>Choose your currency</option>
               {currencies.map((currency) => {
                 return (
                   <option value={currency} key={currency}>

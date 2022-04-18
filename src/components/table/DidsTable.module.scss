@@ -1,0 +1,26 @@
+.table {
+  background-color: #fff;
+
+  thead,
+  tbody,
+  tfoot,
+  tr,
+  td,
+  th {
+    border-color: rgb(150, 150, 150) !important;
+    border-width: 0;
+  }
+
+  tr {
+    &:nth-child(even) {
+      background-color: rgb(242, 242, 242);
+    }
+  }
+}
+
+.container {
+  background-color: #fff;
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}

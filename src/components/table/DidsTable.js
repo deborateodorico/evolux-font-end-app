@@ -6,7 +6,7 @@ import Loading from '../loading/Loading';
 import Pagination from '../pagination/Pagination';
 import AddDidsButton from '../addDids/AddDidsButton';
 import DidsRows from './DidsRows';
-
+import styles from './DidsTable.module.scss';
 const quantityPerPage = 10;
 
 export default function DidsTable() {
@@ -51,11 +51,12 @@ export default function DidsTable() {
   return (
     <>
       {status === 'success' && (
-        <>
+        <div className={styles.container}>
           <AddDidsButton />
-          <Table className='table' responsive>
+
+          <Table className={`table ${styles.table}`} responsive>
             <thead>
-              <tr className='table-secondary'>
+              <tr>
                 <th scope='col'>#</th>
                 <th scope='col'>Number Available</th>
                 <th scope='col'>Monthy Price</th>
@@ -92,7 +93,7 @@ export default function DidsTable() {
             goToPrevPage={goToPrevPage}
             goToNextPage={goToNextPage}
           />
-        </>
+        </div>
       )}
       {status === 'loading' && <Loading />}
     </>

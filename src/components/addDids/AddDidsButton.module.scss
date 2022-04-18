@@ -18,8 +18,16 @@
 
 .add-did-button-container {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
 }
 .add-did-button {
-  margin-bottom: 30px;
+  color: #fff;
+  font-weight: 700;
+}
+
+.title {
+  font-weight: 700;
+  color: rgb(53, 53, 53);
 }
